@@ -9,8 +9,9 @@ const accountSlice = createSlice(
     initialState,
     reducers:{
         addToCart:(state, action) => {
+            const item = action.payload;
+            state.cartItems.push(item);
           
-            state.cartItems.push(action.payload);
 
         }
     }

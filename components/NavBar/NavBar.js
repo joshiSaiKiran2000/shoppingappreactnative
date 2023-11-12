@@ -9,7 +9,7 @@ const NavBar = ()=>{
 
     return(
   <View style = {styles.navbar}>
-    <Text>Shopping Hub </Text>
+    <Text>Shopping</Text>
     {/* <FontAwesome5 name="shopping-cart" size={24} color="black" /> */}
     <Button title='cart' onPress={()=>navigation.navigate('Cart')}/>
 

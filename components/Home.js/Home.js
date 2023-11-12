@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useDispatch,useSelector } from "react-redux";
 import { addToCart } from "../StoreAndReducer/Reducer";
 
-
 import NavBar from "../NavBar/NavBar";
 import axios from "axios";
 
