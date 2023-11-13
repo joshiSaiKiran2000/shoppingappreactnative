@@ -6,7 +6,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Cart from './components/Cart/Cart.js';
 import Home from './components/Home.js/Home.js';
-import NavBar from './components/NavBar/NavBar.js';
+import Login from './components/Login/Login.js';
 
 export default function App() {
   const Stack = createNativeStackNavigator();
@@ -14,19 +14,12 @@ export default function App() {
   return (
     <Provider store={store}>
       <NavigationContainer>
-        <Stack.Navigator>
-        <Stack.Screen name="Home" component={Home} />
+        <Stack.Navigator initialRouteName="Login">
+          <Stack.Screen name="Login" component={Login} />
+          <Stack.Screen name="Home" component={Home} />
           <Stack.Screen name="Cart" component={Cart} />
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>
   );
 }
-
-
-// const styles = StyleSheet.create({
-//   container: {
-//     padding: 25,
-
-//   },
-// });

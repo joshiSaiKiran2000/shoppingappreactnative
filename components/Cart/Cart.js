@@ -25,7 +25,7 @@ const Cart = () => {
 
                                 <Text style={{width:270,marginLeft:10}}>{title}</Text>
                                 <Text style={{marginLeft:10}}>${price}</Text>
-                                <Button title='Remove' onPress={() => deleteHandler(id)}/>
+                                <Button title='Remove' onPress={() => deleteHandler(id) }   />
                             </View>
                         </View>
                     );
@@ -52,6 +52,11 @@ const styles = StyleSheet.create({
         
 
       },
+      button:{
+        width:40,
+        backgroundColor: 'yellow',
+
+      }
 
     
      
