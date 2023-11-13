@@ -10,10 +10,15 @@ const accountSlice = createSlice(
     reducers:{
         addToCart:(state, action) => {
             const item = action.payload;
-            state.cartItems.push(item);
-          
+            const isItemExist = state.cartItems.find((i) => i.id === item.id);
+            if (isItemExist===undefined){
+                state.cartItems.push(item);
+          }
+          },
 
-        }
+          deleteFromCart: (state, action) => {
+            state.cartItems = state.cartItems.filter((i) => i.id !== action.payload);
+        },
     }
 
 }
@@ -21,6 +26,6 @@ const accountSlice = createSlice(
 
 
 
-export const {addToCart} = accountSlice.actions;
+export const {addToCart,deleteFromCart} = accountSlice.actions;
 
 export default accountSlice.reducer;
