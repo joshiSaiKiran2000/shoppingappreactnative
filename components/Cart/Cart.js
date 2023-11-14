@@ -44,6 +44,9 @@ const Cart = () => {
 
 
 
+//styles
+
+
 const styles = StyleSheet.create({
     cartstyle:{
        

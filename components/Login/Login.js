@@ -76,6 +76,9 @@ return (
 );
 }
 
+
+//styles
+
 const styles = StyleSheet.create({
   input: {
     height: 40,

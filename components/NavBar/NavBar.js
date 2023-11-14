@@ -27,6 +27,8 @@ const NavBar = ()=>{
 }
 
 
+//styles
+
 const styles = StyleSheet.create({
     navbar: {
         flexDirection:"row",

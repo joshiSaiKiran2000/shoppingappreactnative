@@ -50,6 +50,9 @@ console.log(error)
   )
 }
 
+
+//styles
+
 const styles = StyleSheet.create({
   card: {
     width: 300,
