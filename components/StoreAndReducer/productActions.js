@@ -1,4 +1,4 @@
-// actions.js
+// ApiActions.js
 import axios from 'axios';
 
 export const fetchProducts = () => async (dispatch) => {
@@ -13,7 +13,7 @@ export const fetchProducts = () => async (dispatch) => {
 };
 
 
-// actions.js
+// ProductActions.js
 export const addToCart = (product) => {
     return { type: 'ADD_TO_CART', payload: product };
   };

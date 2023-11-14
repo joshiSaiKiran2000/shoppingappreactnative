@@ -43,13 +43,18 @@ const Login = () => {
   // }
   useEffect(() => { if (error) 
     { alert('Please enter username or password correctly'); }
-     else if (token) { navigation.navigate('Home'); }
+     else if (token) { navigation.navigate('Home')
+     setUserName("")
+     setPassword(""); }
      }, [error, token, ]);
 
 
 
 const onSuccess = () => {
   dispatch(login(userName, password));
+ 
+
+
 };
 
 return (

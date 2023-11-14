@@ -5,10 +5,12 @@ import { removeFromCart } from '../StoreAndReducer/productActions';
 
 const Cart = () => {
     const dispatch=useDispatch();
+
     const cart = useSelector((state) => state.productItem.cart);
 
     console.log("Cart State:", cart);
 
+    //delete Item dispatch
     const deleteHandler = (id) => {
         dispatch(removeFromCart(id))
        
@@ -21,6 +23,7 @@ const Cart = () => {
                 renderItem={({ item }) => {
                     const {id, image, title, price } = item;
                     return (
+                        //Displaying Cart Items
                         <View style={styles.cartstyle}>
                             <Image style={{ width: 50, height: 50 }}
                                 source={{ uri: `${image}` }} />

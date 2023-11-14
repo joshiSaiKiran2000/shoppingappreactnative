@@ -1,4 +1,4 @@
-// reducers.js
+// Productreducers.js
 const initialState = {
     products: [],
     cart: [],

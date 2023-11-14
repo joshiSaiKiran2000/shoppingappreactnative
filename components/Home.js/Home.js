@@ -2,24 +2,24 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart, fetchProducts } from "../StoreAndReducer/productActions";
 import NavBar from "../NavBar/NavBar";
-import axios from "axios";
 
 import { FlatList, StyleSheet, Text, View, Button, Image } from 'react-native';
 
 const Home = () => {
   const dispatch = useDispatch();
+   
   const products = useSelector(state => state.productItem.products);
 //   const cart = useSelector(state => state.products.cart);
   const error = useSelector((state) => state.error);
 console.log(error)
 
+    
   useEffect(() => {
        dispatch(fetchProducts());
-      
+      }, []);
 
-   
-  }, []);
 
+    //Add Item Dispatch
   const buttonCart = (cartItem) => {
     dispatch(addToCart(cartItem));
   }
@@ -32,6 +32,7 @@ console.log(error)
         renderItem={({ item }) => {
           const { id, image, title, price, rating } = item;
           return (
+            //Displaying Products
             <View style={styles.card}>
               <Image style={{ width: 200, height: 150 }} source={{ uri: `${image}` }} />
               <Text>{title}</Text>

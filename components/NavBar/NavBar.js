@@ -1,3 +1,4 @@
+//Nav Bar
 import { FontAwesome5 } from '@expo/vector-icons'; 
 import {  useSelector } from "react-redux";
 
@@ -14,7 +15,7 @@ const NavBar = ()=>{
   <View style = {styles.navbar}>
     <Text>Shopping Flair</Text>
     <View style ={{flexDirection:"row", backgroundColor:"#FFFFFF"}}>
-    
+    {/* Cart Button */}
     <Button title='cart' onPress={()=>navigation.navigate('Cart')}/>
     <FontAwesome5 name="shopping-cart" size={24} color="black" />
     <Text>{lengthofcart}</Text>
