@@ -1,12 +1,19 @@
 import { FlatList, StyleSheet, Text, View, Button, Image, TextInput } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import React, { useState } from "react";
-import axios from "axios";
+import { useDispatch, useSelector } from 'react-redux';
+import { login } from '../StoreAndReducer/authenticationActions';
+import { useState } from "react";
+
 
 const Login = () => {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const navigation = useNavigation();
+  const dispatch = useDispatch();
+  const token = useSelector((state) => state.authentication.token);
+  const error =  useSelector((state) => state.authentication.error);
+    
+  console.log(token)
 
   const onChangeUserName = (userName) => {
     setUserName(userName)
@@ -16,43 +23,22 @@ const Login = () => {
     setPassword(password)
   }
 
-  const onSuccess = (token)=>{
-    if(token!==undefined){
-        navigation.navigate('Home');
+  const onSuccess = ()=>{
+    dispatch(login(userName, password));
+    setUserName("")
+    setPassword("")
+
+
+    if(error){
+       
+        alert("please enter username or password correctly")
+    }
+    else{
+      navigation.navigate('Home');
     }
    
   }
-  const onLogin = async () => {
-    const obj = JSON.stringify({
-      username: userName,
-      password:  password,
-    });
-
-    const customConfig = {
-      headers: {
-        "Content-Type": "application/json",
-      },
-      
-    };
-
-    try {
-      let result = await axios.post(
-        "https://fakestoreapi.com/auth/login",
-        obj,
-        customConfig
-      
-      );
-
-      onSuccess(result.data.token)
-    } catch (error) {
-      console.log('login error : ', error);
-      alert("plase Enter username and password Correctly")
-    }
-
  
-
-  
-  }
 
   return (
     <View>
@@ -68,7 +54,7 @@ const Login = () => {
         onChangeText={onChangePassword}
         value={password}
       />
-      <Button title='login' onPress={onLogin} />
+      <Button title='login' onPress={onSuccess} />
     </View>
   );
 }

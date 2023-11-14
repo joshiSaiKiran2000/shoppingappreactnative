@@ -7,8 +7,8 @@ import { useNavigation } from '@react-navigation/native';
 
 const NavBar = ()=>{
   const navigation = useNavigation();
-  const cartState = useSelector((state) => state.cart);
- const lengthofcart =cartState.cartItems.length
+  const cart = useSelector((state) => state.productItem.cart);
+  const lengthofcart =cart.length
 
     return(
   <View style = {styles.navbar}>

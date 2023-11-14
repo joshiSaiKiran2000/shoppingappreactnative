@@ -1,7 +1,7 @@
 import React from 'react';
 import { FlatList, StyleSheet, Text, View, Button } from 'react-native';
 import { Provider } from 'react-redux';
-import store from './components/StoreAndReducer/Store.js';
+import store from './components/StoreAndReducer/store.js';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Cart from './components/Cart/Cart.js';

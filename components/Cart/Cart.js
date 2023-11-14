@@ -1,19 +1,23 @@
 import { FlatList, StyleSheet, Text, View, Button, Image } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteFromCart } from '../StoreAndReducer/Reducer';
+import { removeFromCart } from '../StoreAndReducer/productActions';
+
 
 const Cart = () => {
-    const cartState = useSelector((state) => state.cart);
     const dispatch=useDispatch();
+    const cart = useSelector((state) => state.productItem.cart);
+
+    console.log("Cart State:", cart);
+
     const deleteHandler = (id) => {
-        dispatch(deleteFromCart(id))
+        dispatch(removeFromCart(id))
        
       };
 
     return (
         <View>
             <FlatList
-                data={cartState.cartItems}
+                data={cart}
                 renderItem={({ item }) => {
                     const {id, image, title, price } = item;
                     return (
@@ -30,7 +34,6 @@ const Cart = () => {
                         </View>
                     );
                 }}
-                keyExtractor={(item) => item.id.toString()}
             />
         </View>
     );
